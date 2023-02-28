@@ -1,0 +1,17 @@
+{
+  "name": "react-basic-calendar",
+  "version": "1.0.0",
+  "description": "\"Simple and user-friendly calendar package.\"",
+  "main": "index.js",
+  "repository": "https://github.com/emreygc7/react-basic-calendar.git",
+  "author": "Emre Yağcı <emreygc7@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  }
+}
