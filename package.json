@@ -1,6 +1,6 @@
 {
   "name": "@emreygc7/react-basic-calendar",
-  "version": "0.0.1",
+  "version": "0.0.13",
   "description": "\"Simple and user-friendly calendar package.\"",
   "repository": "https://github.com/emreygc7/react-basic-calendar.git",
   "author": "Emre Yağcı <emreygc7@gmail.com>",
@@ -12,6 +12,7 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/react": "^18.0.28",
     "react": "^18.2.0",
@@ -32,5 +33,9 @@
   "module": "dist/esm/index.ts",
   "files": [
     "dist"
-  ]
+  ],
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/emreygc7"
+  }
 }
