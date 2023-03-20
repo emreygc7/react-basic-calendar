@@ -3,6 +3,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import dts from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
+import replace from '@rollup/plugin-replace';
 
 import packageJson from './package.json' assert { type: 'json' };
 
@@ -23,14 +24,13 @@ export default [
       },
     ],
     plugins: [
-      babel(
-        {
-          presets: ['@babel/preset-react', '@babel/preset-env'],
-        },
-     ),
-
-      resolve({extensions: ['.mjs', '.js', '.json', '.node', '.jsx']}),
+ 
+      resolve(),
       commonjs(),
+      replace({
+        'Object.defineProperty(exports, "__esModule", { value: true });': '',
+         delimiters: ['\n', '\n']
+      }),
       typescript({tsconfig: './tsconfig.json'}),
     ],
   },
