@@ -4,6 +4,7 @@ import babel from '@rollup/plugin-babel';
 import dts from 'rollup-plugin-dts';
 import typescript from '@rollup/plugin-typescript';
 import replace from '@rollup/plugin-replace';
+import postcss from 'rollup-plugin-postcss'
 
 import packageJson from './package.json' assert { type: 'json' };
 
@@ -24,7 +25,16 @@ export default [
       },
     ],
     plugins: [
- 
+      postcss({
+        config: {
+          path: './postcss.config.js',
+        },
+        extensions: ['.css'],
+        minimize: true,
+        inject: {
+          insertAt: 'top',
+        },
+      }),       
       resolve(),
       commonjs(),
       replace({
@@ -37,7 +47,8 @@ export default [
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{file: 'dist/index.d.ts', format: 'esm'}],
-    plugins: [dts()]
+    plugins: [dts()],
+    external: [/\.css$/]
   }
   
 ]
