@@ -27,17 +27,19 @@ First, include the package in your project. Then, call it within the component y
 	    return(
 		    <Calendar
 		         startingDate={new Date()}
-			     onDateClick={(date) => console.log(date)}
+			 onDateClick={(date) => console.log(date)}
 		    /> 
 	    )
     }
 
 
 **startingDate**
+
 The value you pass to this prop will set the starting date of the calendar. For example: new Date(2020, 10, 12) //default new Date()
 
 
 **onDateClick**
+
 This prop captures the date you click on and returns a "date" object. You can find the information about the clicked date in the content of this object and use it as needed.
 
 ## User Guide
@@ -57,8 +59,8 @@ This prop captures the date you click on and returns a "date" object. You can fi
 
 You can completely change the appearance of the calendar using the props provided below. **However, please note that each prop you use will completely override the default style files set for the calendar, rather than adding to them.** Therefore, you are free to create your own style!
 
-|Prop name|Description|Default Value
-|--|--|--|--|
+|Prop name|
+|--|
 |mainWrapperClassNames| 
 |headWrapperClassNames|
 |daysWrapperClassNames|
