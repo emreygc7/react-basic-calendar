@@ -9,6 +9,7 @@ import {
   areDatesEqual,
   dateObject,
 } from "../utils/calendar";
+import { NextIcon, PrevIcon } from '../utils/icons'
 
 interface Props {
   language?: string;
@@ -69,7 +70,7 @@ function Calendar({
       className={
         mainWrapperClassNames
           ? mainWrapperClassNames
-          : "w-full h-full border border-black border-opacity-70"
+          : "w-full h-full border border-opacity-70"
       }
     >
       <div
@@ -79,11 +80,11 @@ function Calendar({
             : "w-full  flex justify-between items-center border-b border-opacity-70 p-5 font-bold"
         }
       >
-        <button onClick={prevMonth}>Prev</button>
+        <PrevIcon onClick={prevMonth} className="text-xl text-black cursor-pointer" />
         <p>
           {t(CONST_CALENDAR.months[currentMonth])} {currentYear}
         </p>
-        <button onClick={nextMonth}>Next</button>
+        <NextIcon onClick={nextMonth} className="text-xl text-black cursor-pointer"/>
       </div>
       <div
         className={
@@ -92,7 +93,7 @@ function Calendar({
             : "w-full grid grid-cols-7 py-5"
         }
       >
-        {getSortedDays(currentMonth, currentYear).map(
+        {CONST_CALENDAR.days.map(
           (day: string, index: number) => (
             <p
               key={`${day}-${index}`}
@@ -110,19 +111,19 @@ function Calendar({
             : "h-full w-full grid grid-cols-7 text-right border"
         }
       >
-        {range(getDaysInMonth(currentMonth, currentYear)).map(
+        {getSortedDays(currentMonth, currentYear).map(
           (day: number, index: number) => (
             <p
-              className={`border-r border-b p-3 opacity-80 cursor-pointer h-28 ${
+              className={`border-r border-b p-3 border-opacity-70 cursor-pointer ${
                 areDatesEqual(
                   startingDate,
                   dateObject(day, currentMonth, currentYear)
                 )
-                  ? "bg-blue-300"
+                  ? "bg-slate-100"
                   : ""
               }`}
               key={`${index}-${day}`}
-              onClick={() =>
+              onClick={() => day !== undefined &&
                 onDateClick({
                   date: dateObject(day, currentMonth, currentYear),
                   day: day,
