@@ -1,52 +1,31 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
+import lang from './constant/languages'
 
 const resources = {
   en: {
-    translation: {
-      January: "January",
-      February: "February",
-      March: "March",
-      April: "April",
-      May: "May",
-      June: "June",
-      July: "July",
-      August: "August",
-      September: "September",
-      October: "October",
-      November: "November",
-      December: "December",
-      Sun: "Sun",
-      Mon: "Mon",
-      Tue: "Tue",
-      Wed: "Wed",
-      Thu: "Thu",
-      Fri: "Fri",
-      Sat: "Sat",
-    },
+    translation: lang.en
   },
   tr: {
-    translation: {
-      January: "Ocak",
-      February: "Şubat",
-      March: "Mart",
-      April: "Nisan",
-      May: "Mayıs",
-      June: "Haziran",
-      July: "Temmuz",
-      August: "Ağustos",
-      September: "Eylül",
-      October: "Ekim",
-      November: "Kasım",
-      December: "Aralık",
-      Sun: "Paz",
-      Mon: "Pzt",
-      Tue: "Sal",
-      Wed: "Çar",
-      Thu: "Per",
-      Fri: "Cum",
-      Sat: "Cmt",
-    },
+    translation: lang.tr
+  },
+  es: {
+    translation: lang.es
+  },
+  fr: {
+    translation: lang.fr
+  },
+  de: {
+    translation: lang.de
+  },
+  it: {
+    translation: lang.it
+  },
+  pt: {
+    translation: lang.pt
+  },
+  ru: {
+    translation: lang.ru
   },
 }
 
