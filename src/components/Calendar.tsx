@@ -125,7 +125,7 @@ function Calendar({
         className={
           calendarBodyClassNames
             ? calendarBodyClassNames
-            : "h-full w-full grid grid-cols-7 text-right border"
+            : "h-full w-full grid grid-cols-7 text-right border min-h-[600px]"
         }
       >
         {getSortedDays(currentMonth, currentYear).map(
