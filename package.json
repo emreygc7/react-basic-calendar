@@ -1,6 +1,6 @@
 {
   "name": "@emreygc7/react-basic-calendar",
-  "version": "0.0.44",
+  "version": "0.0.46",
   "description": "\"Simple and user-friendly calendar package.\"",
   "repository": "https://github.com/emreygc7/react-basic-calendar.git",
   "author": "Emre Yağcı <emreygc7@gmail.com>",
@@ -19,7 +19,6 @@
     "postcss": "^8.4.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.8.0",
     "rollup": "^3.19.1",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-postcss": "^4.0.2",
