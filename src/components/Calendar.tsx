@@ -9,7 +9,6 @@ import {
   areDatesEqual,
   dateObject,
 } from "../utils/calendar";
-import { NextIcon, PrevIcon } from '../utils/icons'
 
 interface Props {
   language?: string;
@@ -80,11 +79,29 @@ function Calendar({
             : "w-full  flex justify-between items-center border-b border-opacity-70 p-5 font-bold"
         }
       >
-        <PrevIcon onClick={prevMonth} className="text-xl text-black cursor-pointer" />
+         <svg
+            viewBox="0 0 512 512"
+            fill="currentColor"
+            height="1em"
+            width="1em"
+            onClick={prevMonth}
+            className="cursor-pointer text-3xl"
+        >
+          <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm35.31 292.69a16 16 0 11-22.62 22.62l-96-96a16 16 0 010-22.62l96-96a16 16 0 0122.62 22.62L206.63 256z" />
+         </svg>
         <p>
           {t(CONST_CALENDAR.months[currentMonth])} {currentYear}
         </p>
-        <NextIcon onClick={nextMonth} className="text-xl text-black cursor-pointer"/>
+        <svg
+          viewBox="0 0 512 512"
+          fill="currentColor"
+          height="1em"
+          width="1em"
+          onClick={nextMonth}
+          className="cursor-pointer text-3xl"
+        >
+          <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm-40 326.63L193.37 352l96-96-96-96L216 137.37 334.63 256z" />
+         </svg>
       </div>
       <div
         className={
@@ -123,7 +140,7 @@ function Calendar({
                   : ""
               }`}
               key={`${index}-${day}`}
-              onClick={() => day !== undefined &&
+              onClick={() => day !== undefined && onDateClick && 
                 onDateClick({
                   date: dateObject(day, currentMonth, currentYear),
                   day: day,
