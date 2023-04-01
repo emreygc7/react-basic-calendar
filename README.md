@@ -48,7 +48,7 @@ This prop captures the date you click on and returns a "date" object. You can fi
 
 |Prop name|Description|Default Value|Example usage|
 |--|--|--|--|
-|language| Changes the language of the calendar. Currently, only "en" and "tr" are available. New languages will be added soon. |*"en"*| language={'tr'} |
+|language| Changes the language of the calendar. Available languages:  "en", "tr", "es", "fr", "de", "it", "pt", "ru". |*"en"*| language={'tr'} |
 |startingDate|The value you pass to this prop will set the starting date of the calendar.|new Date()| new Date(2020,10,12)|
 |onDateClick|This prop captures the date you click on and returns a "date" object. You can find the information about the clicked date in the content of this object and use it as needed.|n/a| (date) => console.log(date) |
 |events|The events prop accepts an array as its content. The objects in the array have three keys: **"date, title, id"**. If the objects in the array you pass to this prop do not have these keys, you need to customize them when passing.|n/a|[{date: '2023-05,20', title: 'Event 1', id: '1'}]|
