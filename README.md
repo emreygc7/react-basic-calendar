@@ -53,6 +53,8 @@ This prop captures the date you click on and returns a "date" object. You can fi
 |onDateClick|This prop captures the date you click on and returns a "date" object. You can find the information about the clicked date in the content of this object and use it as needed.|n/a| (date) => console.log(date) |
 |events|The events prop accepts an array as its content. The objects in the array have three keys: **"date, title, id"**. If the objects in the array you pass to this prop do not have these keys, you need to customize them when passing.|n/a|[{date: '2023-05,20', title: 'Event 1', id: '1'}]|
 |onEventClick|This prop captures the event you click on and returns an "event" object. You can find the information about the clicked event in the content of this object and use it as needed.|n/a| (event) => console.log(event) |
+|customPrevIcon|The 'customPrevIcon' prop accepts an HTML or JSX element that will be rendered instead of the default prev icon. If you pass an invalid value (such as a string), it will automatically create an element and render the value you passed - which is not recommended|n/a| `<button>Prev</button>` or `<FaPrevIcon />` |
+|customNextIcon|The 'customNextIcon' prop accepts an HTML or JSX element that will be rendered instead of the default next icon. If you pass an invalid value (such as a string), it will automatically create an element and render the value you passed - which is not recommended|n/a| `<button>Next</button>` or `<MdNextIcon />` |
 
 
 **Custom Style**
