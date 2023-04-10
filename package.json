@@ -1,6 +1,6 @@
 {
   "name": "@emreygc7/react-basic-calendar",
-  "version": "0.0.47",
+  "version": "0.0.48",
   "description": "\"Simple and user-friendly calendar package.\"",
   "repository": "https://github.com/emreygc7/react-basic-calendar.git",
   "author": "Emre Yağcı <emreygc7@gmail.com>",
@@ -45,5 +45,20 @@
   "dependencies": {
     "i18next": "^22.4.12",
     "react-i18next": "^12.2.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "calendar",
+    "date",
+    "time",
+    "react-calendar",
+    "react-date",
+    "react-time",
+    "react-date-time",
+    "react-date-picker",
+    "react-time-picker",
+    "react-date-time-picker",
+    "react-date-time-range-picker",
+    "react-date-range-picker",
+    "react-time-range-picker"]
 }
