@@ -150,6 +150,7 @@ function Calendar({
               }
             >
               <span>{day}</span>
+              <div className="flex flex-col gap-1 h-20 overflow-y-auto">
               {events?.map(
                 (event: any) =>
                   areDatesEqual(
@@ -172,6 +173,7 @@ function Calendar({
                     </span>
                   )
               )}
+              </div>
             </p>
           )
         )}
