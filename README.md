@@ -9,6 +9,7 @@ Simple and user-friendly calendar package for your React application.
 
 - Capture the days, months, and years. 📆
 - Assign events to the days. 🎉
+- Drag & Drop events 💧
 - Dynamic styling. ✨
 - Language support. 🌐
 - No need for moment.js or day.js. ✖️
@@ -55,6 +56,8 @@ This prop captures the date you click on and returns a "date" object. You can fi
 |onEventClick|This prop captures the event you click on and returns an "event" object. You can find the information about the clicked event in the content of this object and use it as needed.|n/a| (event) => console.log(event) |
 |customPrevIcon|The 'customPrevIcon' prop accepts an HTML or JSX element that will be rendered instead of the default prev icon. If you pass an invalid value (such as a string), it will automatically create an element and render the value you passed - which is not recommended|n/a| `<button>Prev</button>` or `<FaPrevIcon />` |
 |customNextIcon|The 'customNextIcon' prop accepts an HTML or JSX element that will be rendered instead of the default next icon. If you pass an invalid value (such as a string), it will automatically create an element and render the value you passed - which is not recommended|n/a| `<button>Next</button>` or `<MdNextIcon />` |
+|eventIsDraggable|The 'eventIsDraggable' prop determines whether the events assigned to the calendar have the drag-and-drop feature |`false`| `true` |
+|onEventDragEnd|The 'onEventDragEnd' prop returns two objects that contain the dragged event and the target date information. `targetDate, event` This allows you to update the date of the event asynchronously or synchronously in the function passed to this prop. |n/a| `(targetDate, event) => console.log("target date: " targetDate, "selected Event: "  event)` |
 
 
 **Custom Style**
@@ -75,7 +78,6 @@ You can completely change the appearance of the calendar using the props provide
 
  - More language support
  - Built-in dark mode support
- - Drag & drop events
 
 ### License
 MIT License.
