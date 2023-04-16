@@ -4,6 +4,7 @@ import React, {
   isValidElement,
   cloneElement,
   Children,
+  useRef
 } from "react";
 import "../utils/i18n";
 import { useTranslation } from "react-i18next";
@@ -29,6 +30,8 @@ interface Props {
   onDateClick: (date: Object) => void;
   events?: Object[];
   onEventClick?: (event: Object[]) => void;
+  eventIsDraggable?: boolean;
+  onEventDragEnd?: (date: Date, event: Object) => void;
   customPrevIcon?: React.ReactNode;
   customNextIcon?: React.ReactNode;
 }
@@ -46,17 +49,44 @@ function Calendar({
   onDateClick,
   events,
   onEventClick,
+  eventIsDraggable = false,
+  onEventDragEnd,
   customPrevIcon,
   customNextIcon,
 }: Props) {
+  
   const [currentMonth, setCurrentMonth] = useState(startingDate.getMonth());
   const [currentYear, setCurrentYear] = useState(startingDate.getFullYear());
+
+  const draggableElDateRef = useRef<Date | null>(null);
+  const dragElIdRef = useRef(null);
 
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
     i18n.changeLanguage(language);
   }, [language]);
+
+  const onDragStart = (id: any) => {
+    dragElIdRef.current = id
+  };
+
+  const onDragEnter = (e: any, date: any) => {
+    e.preventDefault()
+    draggableElDateRef.current = date
+  }
+
+  const onDragEnd = (e: any) => {
+    e.preventDefault()
+    const { current } = dragElIdRef
+     events?.map((event: any) => {
+      if (event.id === current){
+        if(draggableElDateRef.current !== null && !isNaN(draggableElDateRef.current.getTime())){
+        onEventDragEnd && onEventDragEnd(draggableElDateRef.current, event)
+        }
+      }
+    })
+  }
 
   const prevMonth = () => {
     if (currentMonth > 0) setCurrentMonth((prev) => prev - 1);
@@ -183,9 +213,11 @@ function Calendar({
                   year: currentYear,
                 })
               }
+              onDragEnter={(e) => onDragEnter(e, dateObject(day, currentMonth, currentYear))}
+              onDragEnd={onDragEnd}
             >
               <span>{day}</span>
-              <div className="flex flex-col gap-1 h-20 overflow-y-auto">
+              <span className="flex flex-col gap-1 h-20 overflow-y-auto">
                 {events?.map(
                   (event: any) =>
                     areDatesEqual(
@@ -202,13 +234,15 @@ function Calendar({
                           e.stopPropagation();
                           events && onEventClick && onEventClick(event);
                         }}
+                        draggable={eventIsDraggable}
+                        onDragStart={() => onDragStart(event.id)}
                         key={event.id}
                       >
                         {event.title}
                       </span>
                     )
                 )}
-              </div>
+              </span>
             </p>
           )
         )}
