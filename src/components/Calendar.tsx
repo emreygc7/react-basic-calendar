@@ -26,7 +26,7 @@ interface Props {
   daysClassNames?: string;
   calendarBodyClassNames?: string;
   bodyDaysClassNames?: string;
-  eventClassNames?: string;
+  eventClassNames?:  (event: Object) => string | string;
   onDateClick: (date: Object) => void;
   events?: Object[];
   onEventClick?: (event: Object[]) => void;
@@ -227,7 +227,7 @@ function Calendar({
                       <span
                         className={
                           eventClassNames
-                            ? eventClassNames
+                            ? eventClassNames(event)
                             : "text-xs block text-left bg-gray-200 text-gray-800 px-2 py-1 rounded"
                         }
                         onClick={(e) => {
